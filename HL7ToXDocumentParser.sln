@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{481030BB-4A46-40EA-944A-0709F0EC255E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7toXDocumentParser", "HL7toXDocumentParser\HL7toXDocumentParser.csproj", "{7C0DC366-5746-4FC0-8960-66A97E4C85FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{481030BB-4A46-40EA-944A-0709F0EC255E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481030BB-4A46-40EA-944A-0709F0EC255E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481030BB-4A46-40EA-944A-0709F0EC255E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481030BB-4A46-40EA-944A-0709F0EC255E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C0DC366-5746-4FC0-8960-66A97E4C85FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0DC366-5746-4FC0-8960-66A97E4C85FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0DC366-5746-4FC0-8960-66A97E4C85FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0DC366-5746-4FC0-8960-66A97E4C85FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
