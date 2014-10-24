@@ -62,6 +62,7 @@ namespace HL7toXDocumentParser
             bool isHeader = true;
             bool isHeaderWithDelimiters = true;
             string token = null;
+            bool beginEscapeChar = false;
 
             // Get the first data element from the file.
             var val = new TokenDelim(startSegment, fieldDelim);
@@ -206,6 +207,7 @@ namespace HL7toXDocumentParser
                 }
                 else if (val.Delimiter == escapeChar)
                 {
+                    beginEscapeChar = !beginEscapeChar;
                     //\Cxxyy\ 	Single-byte character set escape sequence with two hexadecimal values not converted
                     //\E\ 	    Escape character converted to escape character (e.g., ‘\’)
                     //\F\ 	    Field separator converted to field separator character (e.g., ‘|’)
@@ -255,7 +257,13 @@ namespace HL7toXDocumentParser
 
                             }
                             else
+                            {
+                                if (!beginEscapeChar)
+                                    token += (char)escapeChar;
                                 token += val.Token;
+                                if (!beginEscapeChar)
+                                    token += (char)escapeChar;
+                            }
                         }
                     }
                 }
