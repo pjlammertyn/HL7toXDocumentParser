@@ -219,16 +219,14 @@ namespace HL7toXDocumentParser
                     //\Zdd…\ 	Locally defined escape sequence not converted
                     if (!isHeader || fieldIndex != 1)
                     {
-                        if (string.IsNullOrEmpty(token))
-                            token += val.Token;
-                        else
+                        if (!string.IsNullOrEmpty(val.Token))
                         {
                             if (val.Token.StartsWith("C"))
                             {
 
                             }
                             else if (val.Token == "E")
-                                token += escapeChar;
+                                token += (char)escapeChar;
                             else if (val.Token == "F")
                                 token += fieldDelim;
                             else if (val.Token == "H")
@@ -243,11 +241,11 @@ namespace HL7toXDocumentParser
 
                             }
                             else if (val.Token == "R")
-                                token += repetitionSep;
+                                token += (char)repetitionSep;
                             else if (val.Token == "S")
-                                token += componentDelim;
+                                token += (char)componentDelim;
                             else if (val.Token == "T")
-                                token += subcomponentDelim;
+                                token += (char)subcomponentDelim;
                             else if (val.Token.StartsWith("X"))
                             {
 
@@ -256,6 +254,8 @@ namespace HL7toXDocumentParser
                             {
 
                             }
+                            else
+                                token += val.Token;
                         }
                     }
                 }
