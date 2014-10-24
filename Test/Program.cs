@@ -30,6 +30,15 @@ PD1||||003809^MATTELIN^GUY||||||||N
 PV1|1|O|5551^001^01^WIL|NULL|||003809^MATTELIN^GUY||000573^Bourgeois^Karel|1851|||||||000573^Bourgeois^Karel|0|80398500^^^^VN|3^20140318||||||||||||||||1|1||D|||||201403180830|201403181140";
 
             doc = hl7Parser.Parse(hl7);
+
+
+            hl7 = @"MSH|^~\&|DAVINCI|PATHOLOGIE|MEDIWEB|MEDIBASE|20141024141206||ORU^R01|20141024141206|P|2.4PID||3005226074|30052280078||Margritte^Mariette||19390522|FPV1|||||||||||||||||||80533628OBR|||P14030638|PATHOL^Lymfeklier||20141016111758|20141016111758|||||||||||||||20141024113726||PATHOL|F|||000039^Vuylsteke^Pol||||000780&DEDEURWAERDER&FRANCOBX||RP|PATHOL^Lymfeklier||\E\\E\agfalink\E\davinci\E\DOC\E\P14030638_20141024141206.doc||||||F|||20141024113726||000780^DEDEURWAERDER^FRANC";
+
+            doc = hl7Parser.Parse(hl7);
+
+            Console.WriteLine((from elem in doc.Descendants("OBX.5") select elem.Value).FirstOrDefault());
+
+            Console.ReadLine();
         }
     }
 }
