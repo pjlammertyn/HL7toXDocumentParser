@@ -223,46 +223,51 @@ namespace HL7toXDocumentParser
                     {
                         if (!string.IsNullOrEmpty(val.Token))
                         {
-                            if (val.Token.StartsWith("C"))
+                            if (!beginEscapeChar)
                             {
+                                if (val.Token.StartsWith("C"))
+                                {
 
-                            }
-                            else if (val.Token == "E")
-                                token += (char)escapeChar;
-                            else if (val.Token == "F")
-                                token += fieldDelim;
-                            else if (val.Token == "H")
-                            {
-                            }
-                            else if (val.Token.StartsWith("M"))
-                            {
+                                }
+                                else if (val.Token == "E")
+                                    token += (char)escapeChar;
+                                else if (val.Token == "F")
+                                    token += fieldDelim;
+                                else if (val.Token == "H")
+                                {
+                                }
+                                else if (val.Token.StartsWith("M"))
+                                {
 
-                            }
-                            else if (val.Token == "N")
-                            {
+                                }
+                                else if (val.Token == "N")
+                                {
 
-                            }
-                            else if (val.Token == "R")
-                                token += (char)repetitionSep;
-                            else if (val.Token == "S")
-                                token += (char)componentDelim;
-                            else if (val.Token == "T")
-                                token += (char)subcomponentDelim;
-                            else if (val.Token.StartsWith("X"))
-                            {
+                                }
+                                else if (val.Token == "R")
+                                    token += (char)repetitionSep;
+                                else if (val.Token == "S")
+                                    token += (char)componentDelim;
+                                else if (val.Token == "T")
+                                    token += (char)subcomponentDelim;
+                                else if (val.Token.StartsWith("X"))
+                                {
 
-                            }
-                            else if (val.Token.StartsWith("Z"))
-                            {
+                                }
+                                else if (val.Token.StartsWith("Z"))
+                                {
 
+                                }
+                                else
+                                {
+                                    token += (char)escapeChar;
+                                    token += val.Token;
+                                    token += (char)escapeChar;
+                                }
                             }
                             else
                             {
-                                if (!beginEscapeChar)
-                                    token += (char)escapeChar;
                                 token += val.Token;
-                                if (!beginEscapeChar)
-                                    token += (char)escapeChar;
                             }
                         }
                     }
