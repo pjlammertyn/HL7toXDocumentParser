@@ -201,8 +201,11 @@ namespace HL7toXDocumentParser
                 else if (val.Delimiter == repetitionSep)
                 {
                     if (!isHeader || fieldIndex != 1)
-                    {
-
+                    {               
+                        componentIndex = 1;
+                        subComponentIndex = 1;
+                        component = new XElement(segmentName + "." + fieldIndex + "." + componentIndex, token + val.Token);
+                        field.Add(component);
                     }
                 }
                 else if (val.Delimiter == escapeChar)
