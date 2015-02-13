@@ -202,10 +202,11 @@ namespace HL7toXDocumentParser
                 {
                     if (!isHeader || fieldIndex != 1)
                     {               
-                        componentIndex = 1;
-                        subComponentIndex = 1;
                         component = new XElement(segmentName + "." + fieldIndex + "." + componentIndex, token + val.Token);
                         field.Add(component);
+
+                        componentIndex = 1;
+                        subComponentIndex = 1;
                     }
                 }
                 else if (val.Delimiter == escapeChar)

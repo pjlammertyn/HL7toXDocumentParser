@@ -24,6 +24,9 @@ FTS|0|9568180";
 
             var doc = hl7Parser.Parse(hl7);
 
+            Console.WriteLine((from elem in doc.Descendants("ZIT.4.3") select elem.Value).ElementAt(1));
+
+
             hl7 = @"MSH|^~\&|OAZIS||BIZTALK||20140318115439||ADT^A25|09568240|P|2.3||||||ASCII
 EVN|A25|20140318115439||||201403182330
 PID|1||3410131027|34101315545^^^^NN|Vanhubulcke^Victor^^^Meneer|Vermeersch^Marten|19341015|M|||Pereboomstraat 15^^STADEN^^8880^BE^H||01/56 65 99^^PH~0494/71 66 14ei^^CP||NL|M||80398500^^^^VN|0000000000|34101315545||||||BE||||N
